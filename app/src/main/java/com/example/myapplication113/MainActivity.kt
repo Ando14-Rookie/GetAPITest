@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity : ComponentActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val baseURL = "https://reqres.in/api/users?page=2"
+    private val baseURL = "https://reqres.in/"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,14 +31,14 @@ class MainActivity : ComponentActivity() {
                     .build()
                     .create(ReqresAPI::class.java)
 
-        myAPI.getData().enqueue(object : Callback<List<DataAPI>>{
-            override fun onResponse(call: Call<List<DataAPI>?>, response: Response<List<DataAPI>>?) {
+        myAPI.getData(2).enqueue(object : Callback<UserResponse>{
+            override fun onResponse(call: Call<UserResponse?>, response: Response<UserResponse>?) {
                 val responseBody = response?.body()!!
-                for (mes in responseBody){
-                    Log.i("check-done","onResponse to ${mes.avatar}") }
+                responseBody?.data?.forEach { user ->
+                    Log.i("check-done","onResponse to ${user}") }
             }
 
-            override fun onFailure(call: Call<List<DataAPI>>?, t: Throwable) {
+            override fun onFailure(call: Call<UserResponse>?, t: Throwable) {
                 Log.i("check-done","Failure to ${t.message}")
             }
         })
