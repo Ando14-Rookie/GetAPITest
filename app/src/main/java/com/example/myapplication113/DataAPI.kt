@@ -16,14 +16,6 @@ data class DataAPI (
 )
 
 data class UserResponse (
-    @SerializedName("page")
-    var page:Int,
-    @SerializedName("per_page")
-    var perPage:String,
-    @SerializedName("total")
-    var total:String,
-    @SerializedName("total_pages")
-    var totalPages:String,
     @SerializedName("data")
-    var data:String
+    var data:List<DataAPI>
 )

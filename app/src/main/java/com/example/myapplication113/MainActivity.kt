@@ -34,6 +34,15 @@ class MainActivity : ComponentActivity() {
         myAPI.getData(2).enqueue(object : Callback<UserResponse>{
             override fun onResponse(call: Call<UserResponse?>, response: Response<UserResponse>?) {
                 val responseBody = response?.body()!!
+
+                // Check null or not
+                if (responseBody == null){
+                    println("null has been found")
+                }
+                else{
+                    println("All is okay")
+                }
+
                 responseBody?.data?.forEach { user ->
                     Log.i("check-done","onResponse to ${user}") }
             }

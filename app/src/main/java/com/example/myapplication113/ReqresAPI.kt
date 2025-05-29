@@ -6,7 +6,7 @@ import retrofit2.http.Query
 
 interface ReqresAPI {
 
-    @GET("data")
-    fun getData(@Query("page") page: Int = 2): Call<UserResponse>
+    @GET("api/users")
+    fun getData(@Query("page") page: Int): Call<UserResponse>
 
 }
