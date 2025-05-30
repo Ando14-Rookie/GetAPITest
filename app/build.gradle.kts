@@ -54,4 +54,6 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     //Circle View
     implementation("de.hdodenhof:circleimageview:3.1.0")
+    //Glide: for image loader
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }

@@ -10,3 +10,4 @@ interface ReqresAPI {
     fun getData(@Query("page") page: Int): Call<UserResponse>
 
 }
+
